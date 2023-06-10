@@ -16,10 +16,7 @@ export class CurrencyInputComponent implements OnInit {
   set foreignValue(value: number) {
     this.input = +(value / this.currencyRateService.getRate(this.selectedCurrency)).toFixed(2);
     this.rawInput = this.input.toString();
-
-    this._foreignValue = value;
   }
-  _foreignValue = 0;
 
   @Output() absoluteValue = new EventEmitter<number>();
 
@@ -69,10 +66,6 @@ export class CurrencyInputComponent implements OnInit {
     const absoluteValue = this.input * this.currencyRateService.getRate(this.selectedCurrency);
 
     this.absoluteValue.emit(absoluteValue);
-  }
-
-  recalculate() {
-    this.foreignValue = this._foreignValue;
   }
 
 }
