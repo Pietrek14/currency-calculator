@@ -1,0 +1,6 @@
+<div class="flex gap-1 border-b-[1px]">
+	<input type="text" [(ngModel)]="rawInput" class="w-36 border-none bg-none bg-transparent px-2 text-slate-200 font-light text-lg" (keyup)="validate()">
+	<select class="border-none bg-none bg-transparent text-slate-200" [(ngModel)]="selectedCurrency" (ngModelChange)="recalculate()">
+		<option *ngFor="let currency of this.currencyNames()" class="text-black" [value]="currency">{{currency}}</option>
+	</select>
+</div>
